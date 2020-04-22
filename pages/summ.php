@@ -25,7 +25,6 @@ require_once '../models/summ.php';
 
         <a class="button" href="./newwork.php">Регистрация работы</a></button>
         <a class="button" href="./counterparty.php">Список контрагентов</a></button>
-        <a class="button" href="https://jsonplaceholder.typicode.com/users">Тестировать Ajax</a>
         <div class="summMain">
             <table>
                 <!--
