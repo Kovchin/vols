@@ -1,6 +1,5 @@
 //https://www.youtube.com/watch?v=eKCD9djJQKc&t=1568s
-
-const requestURL = 'https://jsonplaceholder.typicode.com/users';
+//const requestURL = 'https://jsonplaceholder.typicode.com/users';
 
 //Функция отдает запрос серверу
 function sendRequest(method, url, body = null) {
@@ -29,12 +28,10 @@ sendRequest('GET', requestURL)
     .catch(err => console.error(err));
 */
 
-const body = {
-    name: 'Pavel',
-    age: 39
-}
+//Пример запроса
 
+/*
 sendRequest('POST', requestURL, body)
     .then(data => console.log(data))
     .catch(err => console.error(err));
-
+*/

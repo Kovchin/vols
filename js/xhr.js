@@ -32,11 +32,13 @@ function sendRequest(method, url, bodu = null) {
         xhr.send(JSON.stringify(body));
     });
 }
+
 /*
 sendRequest('GET', requestURL)
     .then(data => console.log(data))
     .catch(err => console.error(err));
 */
+
 const body = {
     name: 'Pavel',
     age: 39

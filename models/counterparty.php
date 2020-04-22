@@ -1,4 +1,4 @@
-<?
+<?PHP
 
 require_once '../core/DB.php';
 

@@ -4,12 +4,14 @@ require_once '../models/counterparty.php';
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/main.css">
     <title>Список контрагентов</title>
 </head>
+
 <body>
     <header>
         <p class="logo">ОТС Сибири Droid</h1>
@@ -32,19 +34,22 @@ require_once '../models/counterparty.php';
             <!--
             формирование самой таблицы
             -->
-            <?foreach ($getRows as $value) {?>
-            <tr>
-                <td><input type="text" value="<?=$value['name']?>" <?=($value['id'] < 10 ? 'disabled': '')?>></a></td>
-                <td><input type="text" value="<?=$value['phone']?>" <?=($value['id'] == 1 ? 'disabled': '')?>></td>
-                <td><input type="text" value="<?=$value['email']?>" <?=($value['id'] == 1 ? 'disabled': '')?>></td>
-            </tr>
-            <?};?>
+            <? foreach ($getRows as $value) { ?>
+                <tr>
+                    <td><input data-fieldName="name" data-name="<?= $value['name'] ?>" class="ajax" type="text" value="<?= $value['name'] ?>" <?= ($value['id'] < 10 ? 'disabled' : '') ?>></a></td>
+                    <td><input data-fieldName="phone" data-name="<?= $value['name'] ?>" class="ajax" type="text" value="<?= $value['phone'] ?>" <?= ($value['id'] == 1 ? 'disabled' : '') ?>></td>
+                    <td><input data-fieldName="email" data-name="<?= $value['name'] ?>" class="ajax" type="text" value="<?= $value['email'] ?>" <?= ($value['id'] == 1 ? 'disabled' : '') ?>></td>
+                </tr>
+            <? }; ?>
         </table>
-        
+
     </main>
 
     <footer>
         <p>Все права защищены © Ковчин П.В.</p>
     </footer>
+    <script src="../js/fetch.js"></script>
+    <script src="../js/counterparty.js"></script>
 </body>
+
 </html>
