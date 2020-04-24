@@ -10,13 +10,10 @@ for (let i = 0; i < myAjax.length; i++) {
 function prepareAjax() {
 
     let request = {
-        'name': this.getAttribute('data-name'),
+        'id': this.getAttribute('data-idcounterparty'),
         'fieldName': this.getAttribute('data-fieldName'),
         'value': this.value
     }
-    console.log(request);
-
-
 
     //Отсылаем запрос на сервер
     //отсылаем fetch запрос

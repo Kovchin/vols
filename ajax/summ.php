@@ -20,7 +20,7 @@
  * 
  * */
 
-require_once '../core/DB.php';
+require '../core/DB.php';
 
 //Настраиваем заголовок (запросы и ответы я отдаю в JSON формате)
 header('Content-Type: application/json');
@@ -46,7 +46,7 @@ $response = [
     //'request' => $request,
     //'sql' => $sql,
     //'values' => $values,
-    'resultUpdate' => $resultUpdate, //Если все успешно то ответ будет 2 берется из 'core\DB.php'
+    'resultUpdate' => $resultUpdate, //Если все успешно то ответ будет true берется из 'core\DB.php'
     'errorName' => 'no error',
     'errorNumber' => 0
 ];

@@ -36,9 +36,9 @@ require_once '../models/counterparty.php';
             -->
             <? foreach ($getRows as $value) { ?>
                 <tr>
-                    <td><input data-fieldName="name" data-name="<?= $value['name'] ?>" class="ajax" type="text" value="<?= $value['name'] ?>" <?= ($value['id'] < 10 ? 'disabled' : '') ?>></a></td>
-                    <td><input data-fieldName="phone" data-name="<?= $value['name'] ?>" class="ajax" type="text" value="<?= $value['phone'] ?>" <?= ($value['id'] == 1 ? 'disabled' : '') ?>></td>
-                    <td><input data-fieldName="email" data-name="<?= $value['name'] ?>" class="ajax" type="text" value="<?= $value['email'] ?>" <?= ($value['id'] == 1 ? 'disabled' : '') ?>></td>
+                    <td><input data-fieldName="name" data-idcounterparty="<?= $value['id'] ?>" data-name="<?= $value['name'] ?>" class="ajax" type="text" value="<?= $value['name'] ?>" <?= ($value['id'] < 10 ? 'disabled' : '') ?>></a></td>
+                    <td><input data-fieldName="phone" data-idcounterparty="<?= $value['id'] ?>" data-name="<?= $value['name'] ?>" class="ajax" type="text" value="<?= $value['phone'] ?>" <?= ($value['id'] == 1 ? 'disabled' : '') ?>></td>
+                    <td><input data-fieldName="email" data-idcounterparty="<?= $value['id'] ?>" data-name="<?= $value['name'] ?>" class="ajax" type="text" value="<?= $value['email'] ?>" <?= ($value['id'] == 1 ? 'disabled' : '') ?>></td>
                 </tr>
             <? }; ?>
         </table>

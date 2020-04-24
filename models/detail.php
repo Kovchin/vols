@@ -14,7 +14,7 @@ $listCrq = $db->getRows('SELECT `CRQ` FROM `fol_list` ORDER BY CRQ');
 $listCounterparty = $db->getRows('SELECT `id`,`name` FROM `fol_counterparty` ORDER BY id');
 
 //Данные для заполнения первой секции
-$description = $db->getRow('SELECT * FROM `fol_list` WHERE CRQ = ?',[$crq]);
+$description = $db->getRow('SELECT * FROM `fol_list` WHERE CRQ = ?', [$crq]);
 
 //Получаем id текущей заявки из таблицы fol_list
 $idcrq = $description['id'];
@@ -26,20 +26,21 @@ $initiator = $db->getRow('SELECT fol_working_process.id,
                                     fol_counterparty.phone,
                                     fol_counterparty.email
                             FROM `fol_working_process` 
-                            JOIN fol_counterparty ON fol_counterparty.id = fol_working_process.id_counterparty WHERE id_crq = ? AND flag = 1',[$idcrq]);
+                            JOIN fol_counterparty ON fol_counterparty.id = fol_working_process.id_counterparty WHERE id_crq = ? AND flag = 1', [$idcrq]);
 
 //Получаем id инициатора текущих работ
 $id_counterparty = $initiator['id_counterparty'];
 
 //Данные для заполнения треттей секции
-$agreement = $db->getRows('SELECT fol_counterparty.name,
+$agreement = $db->getRows('SELECT   fol_working_process.id_counterparty,
+                                    fol_counterparty.name,
                                     fol_working_process.data,
                                     fol_working_process.revision,
                                     fol_working_process.revisionComment
                              FROM `fol_working_process` 
                              JOIN   `fol_counterparty`
                              ON fol_counterparty.id = fol_working_process.id_counterparty
-                             WHERE id_crq = ? AND flag = 2',[$idcrq]);
+                             WHERE id_crq = ? AND flag = 2', [$idcrq]);
 
 //Данные для заполнения четвертой секции
 $request = $db->getRows('SELECT fol_counterparty.name,
@@ -47,7 +48,7 @@ $request = $db->getRows('SELECT fol_counterparty.name,
                         FROM `fol_working_process` 
                         JOIN `fol_counterparty`
                         ON fol_counterparty.id = fol_working_process.id_counterparty
-                        WHERE id_crq = ? AND flag = 3',[$idcrq]);
+                        WHERE id_crq = ? AND flag = 3', [$idcrq]);
 
 $asu = $description['ASU'];
 
@@ -64,7 +65,7 @@ $сancelled = $db->getRow('SELECT fol_counterparty.name,
                             ON fol_counterparty.id = fol_working_process.id_counterparty
                             JOIN `personel`
                             ON personel.id = fol_working_process.id_personel
-                            WHERE id_crq = ? AND flag = 6',[$idcrq]);
+                            WHERE id_crq = ? AND flag = 6', [$idcrq]);
 
 $canselledSmena = $сancelled['surname'];
 
@@ -74,7 +75,7 @@ $сancelledNotification = $db->getRow('SELECT
                             FROM `fol_working_process` 
                             JOIN `personel`
                             ON personel.id = fol_working_process.id_personel
-                            WHERE id_crq = ? AND flag = 7',[$idcrq]);
+                            WHERE id_crq = ? AND flag = 7', [$idcrq]);
 
 //отладочный блок
 //show($сancelledNotification);

@@ -11,12 +11,12 @@ $request = json_decode(file_get_contents('php://input'));
 //Готовим данные для обращения к безе
 $fieldName = trim(htmlspecialchars($request->fieldName));
 $value = trim(htmlspecialchars($request->value));
-$name = trim(htmlspecialchars($request->name));
+$id = trim(htmlspecialchars($request->id));
 
 //sql запрос
-$sql = "UPDATE `fol_counterparty` SET $fieldName = ? WHERE `name` = ?";
+$sql = "UPDATE `fol_counterparty` SET $fieldName = ? WHERE `id` = ?";
 //значения подставляемых полей
-$values = [$value, $name];
+$values = [$value, $id];
 
 //Подулючаемся к базе данных вносим изменения и отключаемся от нее
 $db = new DB();

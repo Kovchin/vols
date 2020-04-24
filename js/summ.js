@@ -1,3 +1,13 @@
+/**
+ * !!!
+ * формат JSON для обмена с сервером
+ *  requset = {
+        'crq': this.getAttribute('data-crq'), // номер CRQ данные которого мы что то меняем
+        'value': value, // новое значение поля
+        'fieldName': this.getAttribute('data-fieldName') //имя поля в 'fol_list'
+    }
+ */
+
 //Формируем nodeList с элементами изменения значений которых будем обрабатывать fetch запросами к серверу
 let myAjax = document.querySelectorAll('.ajax');
 
@@ -29,7 +39,7 @@ function prepareAjax() {
     sendRequest('POST', '../ajax/summ.php', requset)
         //Успех
         .then(data => {
-            (data.resultUpdate == 2) ? console.log('Обновления в базе прошли успешно'): alert('Ошибка данные не внесены в базу')
+            console.log(data);
         })
         //Ошибка
         .catch(err => console.error(err));
