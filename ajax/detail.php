@@ -126,7 +126,25 @@ if ($section == 'notation') {
         $result = $db->updateRow($sql, $values);
         $db->disconnect();
     }
-} else {
+} elseif ($section == 'application') {
+    //Если меняем дату заявки
+    if ($request->fieldName) {
+        $sql = "UPDATE `fol_working_process` SET `$request->fieldName` = ?  WHERE `id_crq` = ? AND `id_counterparty` = ? AND `flag` = 3";
+        $values = [$request->value, $request->idcrq, $request->idcounterparty];
+
+        $db = new DB();
+        $result = $db->updateRow($sql, $values);
+        $db->disconnect();
+    } else {
+        //Если регистрируем номер заявки в АСУ РЭО
+        $sql = "UPDATE `fol_list` SET `ASU` = ?  WHERE `id` = ?";
+        $values = [$request->value, $request->idcrq];
+
+        $db = new DB();
+        $result = $db->updateRow($sql, $values);
+        $db->disconnect();
+    }
+} elseif ('') {
     $response['result'] = 'Пока не реализовано';
 }
 

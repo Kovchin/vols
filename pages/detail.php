@@ -104,15 +104,16 @@ require_once '../models/detail.php';
                     <td>
                         <?= $value['name'] ?>
                     </td>
-                    <td><input data-section="application" class="ajax" type="date" value="<?= $value['date'] ?>"></td>
+                    <td><input data-idcounterparty="<?= $value['id_counterparty'] ?>" data-fieldName="data" data-section="application" class="ajax" type="date" value="<?= $value['data'] ?>"></td>
                 </tr>
             <? } ?>
-            <!--           <tr>
+
+            <!--  Эту секцию убрал так как посчитали что добавление в этап согласования автоматически  подразумевает добавление в этап согласования заявки         <tr>
                 <td colspan=2>
                     <select data-section="application" class="ajax">
-                        <? foreach ($listCounterparty as $value) { ?>
+                        <?/* foreach ($listCounterparty as $value) { ?>
                             <option data-idcounterparty="<?= $value['id'] ?>" value="<?= $value['name'] ?>"><?= $value['name'] ?></option>
-                        <? } ?>
+                        <? } */ ?>
                     </select>
                 </td>
             </tr>-->
@@ -158,7 +159,7 @@ require_once '../models/detail.php';
                 <td colspan=2>
                     <select data-section="cancel" class="ajax">
                         <? foreach ($smena as $value) { ?>
-                            <option value="<?= $value['surname'] ?>" <?= ($сancelledNotification['surname'] == $value['surname'] ? 'selected' : '') ?>><?= $value['surname'] ?></option>
+                            <option value="<?= $value['surname'] ?>" <?= ($сancelledNotifiфcation['surname'] == $value['surname'] ? 'selected' : '') ?>><?= $value['surname'] ?></option>
                         <? } ?>
                     </select>
                 </td>

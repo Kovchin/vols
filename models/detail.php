@@ -44,7 +44,8 @@ $agreement = $db->getRows('SELECT   fol_working_process.id_counterparty,
 
 //Данные для заполнения четвертой секции
 $request = $db->getRows('SELECT fol_counterparty.name,
-                                fol_working_process.data
+                                fol_working_process.data,
+                                fol_working_process.id_counterparty
                         FROM `fol_working_process` 
                         JOIN `fol_counterparty`
                         ON fol_counterparty.id = fol_working_process.id_counterparty
